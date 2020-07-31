@@ -1,6 +1,6 @@
 talkiepi:
-	wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
-	tar -C $$(pwd) -xzf go1.11.linux-amd64.tar.gz
+	wget https://dl.google.com/go/go1.11.13.linux-amd64.tar.gz
+	tar -C $$(pwd) -xzf go1.11.13.linux-amd64.tar.gz
 	mkdir $$(pwd)/gopath
 	HOME=$$(pwd) GOPATH=$$(pwd)/gopath CC=arm-linux-gnueabi-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=5 $$(pwd)/go/bin/go get github.com/dchote/gopus
 	HOME=$$(pwd) GOPATH=$$(pwd)/gopath CC=arm-linux-gnueabi-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=5 $$(pwd)/go/bin/go get github.com/dchote/talkiepi
