@@ -1,0 +1,6 @@
+Talkiepi
+--------
+
+The talkiepi project is for a truly headless mumble client for the Raspberry Pi, utilizing static config and GPIO for status LEDs and a button for push to talk 
+
+ -- derchris <derchris@me.com>  Thu, 13 Sep 2018 13:53:47 +0000
