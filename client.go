@@ -16,7 +16,8 @@ func (b *Talkiepi) Init() {
 	b.Config.Attach(gumbleutil.AutoBitrate)
 	b.Config.Attach(b)
 
-	b.initGPIO()
+	b.GPIOEnabled = false
+	// b.initGPIO()
 
 	b.Connect()
 }
@@ -84,6 +85,7 @@ func (b *Talkiepi) TransmitStart() {
 		return
 	}
 
+	fmt.Fprintf(os.Stderr, "Starting to transmit\n")
 	b.IsTransmitting = true
 
 	// turn on our transmit LED
@@ -121,6 +123,7 @@ func (b *Talkiepi) OnConnect(e *gumble.ConnectEvent) {
 	if b.ChannelName != "" {
 		b.ChangeChannel(b.ChannelName)
 	}
+	b.TransmitStartSoon()
 }
 
 func (b *Talkiepi) OnDisconnect(e *gumble.DisconnectEvent) {
@@ -243,6 +246,7 @@ func (b *Talkiepi) OnPermissionDenied(e *gumble.PermissionDeniedEvent) {
 
 func (b *Talkiepi) OnChannelChange(e *gumble.ChannelChangeEvent) {
 	go b.ParticipantLEDUpdate()
+	b.TransmitStartSoon()
 }
 
 func (b *Talkiepi) OnUserList(e *gumble.UserListEvent) {
@@ -262,4 +266,11 @@ func (b *Talkiepi) OnServerConfig(e *gumble.ServerConfigEvent) {
 
 func esc(str string) string {
 	return sanitize.HTML(str)
+}
+
+func (b *Talkiepi) TransmitStartSoon() {
+	go func() {
+		time.Sleep(2000 * time.Millisecond)
+		b.TransmitStart()
+	}()
 }
