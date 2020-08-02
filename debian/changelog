@@ -1,4 +1,4 @@
-talkiepi (0.1.0) stretch; urgency=medium
+talkiepi (0.1.0-1) buster; urgency=medium
 
   * Initial release.
 

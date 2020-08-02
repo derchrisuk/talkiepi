@@ -1,4 +1,0 @@
-tar-ignore = ".git"
-tar-ignore = "CMakeFiles"
-tar-ignore = "rc.hex"
-tar-ignore = "obj-*"

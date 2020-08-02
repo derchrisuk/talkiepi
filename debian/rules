@@ -1,5 +1,4 @@
-#!/usr/bin/make -f  
-%:  
-	dh $@
+#!/usr/bin/make -f
 
-override_dh_usrlocal:
+%:
+	dh $@ --buildsystem=golang --with=golang

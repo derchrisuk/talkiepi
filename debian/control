@@ -2,13 +2,28 @@ Source: talkiepi
 Section: video
 Priority: optional
 Maintainer: derchris <derchris@me.com>
-Build-Depends: debhelper (>=9), pkgconf, ssl-cert, tar, wget, curl, git, libopenal-dev, libopus-dev
-Standards-Version: 3.9.8
-Homepage: https://github.com/dchote/talkiepi
+Uploaders: derchris <derchris@me.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 12),
+ dh-golang,
+Build-Depends-Indep:
+ golang-any,
+ golang-github-derchrisuk-gopus-dev
+Standards-Version: 4.5.0
+Homepage: https://github.com/derchrisuk/talkiepi
+Vcs-Browser: https://github.com/derchrisuk/talkiepi
+Vcs-Git: https://github.com/derchrisuk/talkiepi.git
+XS-Go-Import-Path: github.com/derchrisuk/talkiepi
+Testsuite: autopkgtest-pkg-go
 
 Package: talkiepi
 Priority: extra
-Architecture: any
-Depends: ${shlibs:Depends}, libopenal1, libopus0 
+Architecture: all
+Depends:
+ ${misc:Depends},
+ golang-github-derchrisuk-gopus-dev,
+ libopenal1,
+ libopus0
 Description: Talkiepi
  The talkiepi project is for a truly headless mumble client for the Raspberry Pi, utilizing static config and GPIO for status LEDs and a button for push to talk
