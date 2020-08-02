@@ -19,8 +19,8 @@ Testsuite: autopkgtest-pkg-go
 
 Package: talkiepi
 Priority: extra
-Architecture: all
-Multi-Arch: foreign
+Architecture: any
+Multi-Arch: same
 Depends:
  ${misc:Depends},
  golang-github-derchrisuk-gopus-dev,
