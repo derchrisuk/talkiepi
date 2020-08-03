@@ -1,10 +1,10 @@
 talkiepi:
 	HOME=$$(pwd) git config --global http.sslVerify false
-	ifeq ($(ARCH), arm64)
+	ifeq ($$(ARCH),arm64)
 	  wget --no-check-certificate https://golang.org/dl/go1.14.6.linux-arm64.tar.gz
 	  tar zxf $$(pwd)go1.14.6.linux-arm64.tar.gz
 	endif
-	ifeq ($(ARCH), armhf)
+	ifeq ($$(ARCH),armhf)
 	  wget --no-check-certificate https://golang.org/dl/go1.14.6.linux-armv6l.tar.gz
 	  tar zxf $$(pwd)go1.14.6.linux-armv6l.tar.gz
 	endif
