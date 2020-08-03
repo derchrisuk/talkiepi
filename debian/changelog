@@ -1,10 +1,10 @@
-talkiepi (0.1.0-2) buster; urgency=medium
+talkiepi (0.2.0) buster; urgency=medium
 
   * ISDN version.
 
  -- derchris <derchris@me.com>  Mon, 03 Aug 2020 16:43:00 +0200
 
-talkiepi (0.1.0-1) stretch; urgency=medium
+talkiepi (0.1.0) stretch; urgency=medium
 
   * Initial release.
 
