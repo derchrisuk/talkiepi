@@ -3,8 +3,8 @@ Section: video
 Priority: optional
 Maintainer: derchris <derchris@me.com>
 Build-Depends: debhelper (>=9), pkgconf, ssl-cert, tar, wget, curl, git, libopenal-dev, libopus-dev
-Standards-Version: 3.9.8
-Homepage: https://github.com/dchote/talkiepi
+Standards-Version: 4.50
+Homepage: https://github.com/derchrisuk/talkiepi
 
 Package: talkiepi
 Priority: extra

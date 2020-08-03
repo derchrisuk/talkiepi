@@ -1,9 +1,16 @@
 talkiepi:
-	wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
-	tar -C $$(pwd) -xzf go1.11.linux-amd64.tar.gz
+	HOME=$$(pwd) git config --global http.sslVerify false
+	if [[ $ARCH == arm64 ]]; then
+	  wget --no-check-certificate https://golang.org/dl/go1.14.6.linux-arm64.tar.gz
+	  tar -C $$(pwd) -xzf go1.14.6.linux-arm64.tar.gz
+	fi
+	if [[ $ARCH == armhf ]]; then
+	  wget --no-check-certificate https://golang.org/dl/go1.14.6.linux-armv6l.tar.gz
+	  tar -C $$(pwd) -xzf go1.14.6.linux-armv6l.tar.gz
+	fi
 	mkdir $$(pwd)/gopath
 	HOME=$$(pwd) GOPATH=$$(pwd)/gopath CC=arm-linux-gnueabi-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=5 $$(pwd)/go/bin/go get github.com/dchote/gopus
-	HOME=$$(pwd) GOPATH=$$(pwd)/gopath CC=arm-linux-gnueabi-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=5 $$(pwd)/go/bin/go get github.com/dchote/talkiepi
+	HOME=$$(pwd) GOPATH=$$(pwd)/gopath CC=arm-linux-gnueabi-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=5 $$(pwd)/go/bin/go get github.com/derchrisuk/talkiepi
 	HOME=$$(pwd) GOPATH=$$(pwd)/gopath CC=arm-linux-gnueabi-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=5 $$(pwd)/go/bin/go build -o talkiepi cmd/talkiepi/main.go
 
 install: talkiepi
