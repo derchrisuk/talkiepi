@@ -9,7 +9,7 @@ ifeq ($(ARCH),armhf)
 	  tar zxf $$(pwd)/go1.14.6.linux-armv6l.tar.gz
 endif
 	mkdir $$(pwd)/gopath
-	HOME=$$(pwd) GOPATH=$$(pwd)/gopath $$(pwd)/go/bin/go get -insecure github.com/dchote/gopu
+	HOME=$$(pwd) GOPATH=$$(pwd)/gopath $$(pwd)/go/bin/go get -insecure github.com/dchote/gopus
 	HOME=$$(pwd) GOPATH=$$(pwd)/gopath $$(pwd)/go/bin/go get -insecure github.com/derchrisuk/talkiepi
 	HOME=$$(pwd) GOPATH=$$(pwd)/gopath $$(pwd)/go/bin/go build -o talkiepi cmd/talkiepi/main.go
 
