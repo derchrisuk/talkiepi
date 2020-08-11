@@ -20,6 +20,7 @@ func (b *Talkiepi) Init() {
 	// b.initGPIO()
 
 	b.Connect()
+	fmt.Printf("Automatic transmissino of audio enabled\n");
 }
 
 func (b *Talkiepi) CleanUp() {
@@ -269,6 +270,7 @@ func esc(str string) string {
 }
 
 func (b *Talkiepi) TransmitStartSoon() {
+	fmt.Printf("about to start transmitting...\n")
 	go func() {
 		time.Sleep(2000 * time.Millisecond)
 		b.TransmitStart()
